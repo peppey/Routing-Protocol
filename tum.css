@@ -1,0 +1,546 @@
+svg {
+   height: 90%;
+   width: 90%;
+}
+ 
+
+/* 
+Keyframes: 
+=========================================================================
+*/
+
+/* opacity */
+@keyframes kf-blink {
+   10% { opacity: 0; }
+   50% { opacity: 0; }
+   60% { opacity: 1; }
+  100% { opacity: 1; }
+}
+@keyframes kf-hide{ 
+    from { fill-opacity: 1;}
+    to{fill-opacity: 0} }
+@keyframes kf-show{ from { fill-opacity: 0; }
+to{fill-opacity: 1} }
+
+@keyframes kf-turnblue{ to{fill-opacity: 1; fill: blue;} }
+
+
+
+/* ---- translate ---- */
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+
+/* left, right, down, up */
+@keyframes kf-move-r{   
+    from { -ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);	
+    -o-transform: translateX(0px);
+    transform: translateX(0px);
+    }
+    to {     -ms-transform: translateX(33px);
+    -webkit-transform: translateX(33px);
+    -moz-transform: translateX(33px);	
+    -o-transform: translateX(33px);
+    transform: translateX(33px);
+ }}
+
+@keyframes kf-move-r2{ to{     -ms-transform: translateX(33px);
+    -webkit-transform: translateX(33px);
+    -moz-transform: translateX(33px);	
+    -o-transform: translateX(33px);
+    transform: translateX(33px);
+ }}
+
+@keyframes kf-move-l{   100% {     -ms-transform: translateX(-33px);
+    -webkit-transform: translateX(-33px);
+    -moz-transform: translateX(-33px);	
+    -o-transform: translateX(-33px);
+    transform: translateX(-33px);
+ }}
+@keyframes kf-move-u{ to{    -ms-transform: translateY(-35px);
+    -webkit-transform: translateY(-35px);
+    -moz-transform: translateY(-35px);	
+    -o-transform: translateY(-35px);
+    transform: translateY(-35px);
+    }}
+@keyframes kf-move-d{ to{     -ms-transform: translateY(35px);
+    -webkit-transform: translateY(35px);
+    -moz-transform: translateY(35px);	
+    -o-transform: translateY(35px);
+    transform: translateY(35px);
+ }}
+/* right down; right up; left down; left up */
+@keyframes kf-move-rd { to{ transform:translate( 100%, 100% ); }}
+@keyframes kf-move-ru { to{ transform:translate( 100%,-100% ); }}
+@keyframes kf-move-ld { to{ transform:translate(-100%, 100% ); }}
+@keyframes kf-move-ld { to{ transform:translate(-100%,-100% ); }}
+
+/* left, right, down, up */
+/*question: can this animation played two times to achieve 1 length?*/
+@keyframes kf-move-r-05{ to{ transform:translateX( 50%); }}
+@keyframes kf-move-l-05{ to{ transform:translateX(-50%); }}
+@keyframes kf-move-d-05{ to{ transform:translateY( 50%); }}
+@keyframes kf-move-u-05{ to{ transform:translateY(-50%); }}
+
+@keyframes kf-move-rd-05 { to{ transform:translate( 50%, 50% ); }}
+@keyframes kf-move-ru-05 { to{ transform:translate( 50%,-50% ); }}
+@keyframes kf-move-ld-05 { to{ transform:translate(-50%, 50% ); }}
+@keyframes kf-move-ld-05 { to{ transform:translate(-50%,-50% ); }}
+
+
+/* ---- rotate ---- */
+@keyframes kf-rot-90  { to{ transform:rotate(90deg); }}
+@keyframes kf-rot-180 { to{ transform:rotate(180deg); }}
+@keyframes kf-rot-270 { to{ transform:rotate(270deg); }}
+@keyframes kf-rot-360 { to{ transform:rotate(360deg); }}
+
+
+/* ---- scale ---- */
+@keyframes kf-scale-200 { to{ transform:scale(2.0); }}
+@keyframes kf-scale-100 { to{ transform:scale(1.0); }}
+@keyframes kf-scale-50  { to{ transform:scale(0.5); }}
+@keyframes kf-scale-0   { to{ transform:scale(0.0); }}
+
+
+
+/* 
+Animations: 
+Each Element can only hold one assigned animation 
+=========================================================================
+*/
+
+
+/* ---- opacity ---- */
+.ani.fade-in { animation: kf-show 1s linear 1 forwards; }
+
+.ani.fade-out { animation: kf-hide 1s linear 1 forwards; }
+.ani.blink { animation: kf-blink 0.5s linear infinite; }
+
+
+/* ---- turn blue ---- */
+
+.ani.turnblue { animation: kf-turnblue 1s linear 1 forwards; }
+.ani.turnblack { animation: kf-turnblue 1s linear 1 backwards; }
+
+
+/* ---- translate ---- */
+.move-r{ animation: kf-move-r 1s linear alternate;
+  animation-iteration-count:2;
+}
+.move-l{ animation: kf-move-l 1s linear alternate;
+  animation-iteration-count:2; }
+.move-d{ animation: kf-move-d 1s linear alternate;
+  animation-iteration-count:2;
+}
+.move-u{ animation: kf-move-u 1s linear alternate; 
+  animation-iteration-count:2;
+}
+
+.move-rd{ animation: kf-move-rd 1s linear 0s; }
+.move-ru{ animation: kf-move-ru 1s linear 0s; }
+.move-ld{ animation: kf-move-ld 1s linear 0s; }
+.move-lu{ animation: kf-move-lu 1s linear 0s; }
+
+.move-r-05{ animation: kf-move-r-05 1s linear 0s; }
+.move-l-05{ animation: kf-move-l-05 1s linear 0s; }
+.move-d-05{ animation: kf-move-d-05 1s linear 0s; }
+.move-u-05{ animation: kf-move-u-05 1s linear 0s; }
+
+/* ---- set origin (rotate and scale) ---- */
+.ani.ori-c { transform-origin: 50%, 50%; }
+.ani.ori-rt { transform-origin: 100%,    0%; }
+.ani.ori-rd { transform-origin: 100%,  100%; }
+.ani.ori-lt { transform-origin:   0%,    0%; }
+.ani.ori-ld { transform-origin:   0%,  100%; }
+
+/* ---- rotate ---- */
+.ani.rot-90  { animation: kf-rot-90  0.5s linear; }
+.ani.rot-180 { animation: kf-rot-180 1.0s linear; }
+.ani.rot-270 { animation: kf-rot-270 1.5s linear; }
+.ani.rot-360 { animation: kf-rot-360 2.0s linear; }
+
+.ani.cw { animation-direction: normal; }
+.ani.ccw{ animation-direction: reverse; }
+
+
+/* ---- scale ---- */
+.ani.scale-200 { animation: kf-scale-200 2.0s linear; }
+.ani.scale-100 { animation: kf-scale-100 2.0s linear; }
+.ani.scale-50  { animation: kf-scale-50  2.0s linear; }
+.ani.scale-0   { animation: kf-scale-0   2.0s linear; }
+
+
+
+/* ---- move along path ---- */
+.ani.move-along {
+  offset-path: path('m0,0 h23');
+  animation: move 30ms linear;
+}
+
+.ani.move-along2 {
+  offset-path: path('m0,0 h45');
+  animation: move 30ms linear;
+}
+
+.ani.move-along-v {
+  offset-path: path('m0,0 v45');
+  animation: move 30ms linear;
+}
+
+
+
+
+/* ---- path1 ---- */
+
+
+
+/* Animation modifiers
+=========================================================================
+ */
+/*duration timing-function delay iteration-count direction fill-mode play-state*/
+/*can also be apllied to the entire svg?*/
+.ani.dur-1s { animation-duration:   0.5s !important;}
+.ani.dur-2s { animation-duration:   1s !important;} 
+.ani.dur-3s { animation-duration:   1.5s !important;}
+.ani.dur-4s { animation-duration:   2s !important;}
+.ani.dur-5s { animation-duration:   2.5s !important;}
+.ani.dur-6s { animation-duration:   3s !important;}
+.ani.dur-7s { animation-duration:   3.5s !important;}
+.ani.dur-8s { animation-duration:   4s !important;}
+.ani.dur-9s { animation-duration:   4.5s !important;}
+.ani.dur-10s{ animation-duration:  5s !important;}
+
+.ani {animation-duration: --duration !important;}}
+
+
+.ani.linear  { animation-timing-function: linear !important;   }
+.ani.ease    { animation-timing-function: ease !important;     }
+.ani.ease-in { animation-timing-function: ease-in !important;  }
+.ani.ease-out{ animation-timing-function: ease-out !important; }
+
+
+
+
+.ani.del-1s { animation-delay:   0.5s !important;}
+.ani.del-2s { animation-delay:   1s !important;}
+.ani.del-3s { animation-delay:   1.5s !important;}
+.ani.del-4s { animation-delay:   2s !important;}
+.ani.del-5s { animation-delay:   2.5s !important;}
+.ani.del-6s { animation-delay:   3s !important;}
+.ani.del-7s { animation-delay:   3.5s !important;}
+.ani.del-8s { animation-delay:   4s !important;}
+.ani.del-9s { animation-delay:   4.5s !important;}
+.ani.del-10s{ animation-delay:  5s !important;}
+.ani.del-11s{ animation-delay:  5.5s !important;}
+.ani.del-12s{ animation-delay:  6s !important;}
+.ani.del-13s{ animation-delay:  6.5s !important;}
+.ani.del-14s{ animation-delay:  7s !important;}
+.ani.del-15s{ animation-delay:  7.5s !important;}
+.ani.del-16s{ animation-delay:  8s !important;}
+.ani.del-17s{ animation-delay:  8.5s !important;}
+.ani.del-18s{ animation-delay:  9s !important;}
+.ani.del-19s{ animation-delay:  9.5s !important;}
+.ani.del-20s{ animation-delay:  10s !important;}
+.ani.del-21s{ animation-delay:  10.5s !important;}
+.ani.del-22s{ animation-delay:  11s !important;}
+.ani.del-23s{ animation-delay:  11.5s !important;}
+.ani.del-24s{ animation-delay:  12s !important;}
+.ani.del-25s{ animation-delay:  12.5s !important;}
+.ani.del-26s{ animation-delay:  13s !important;}
+.ani.del-27s{ animation-delay:  13.5s !important;}
+.ani.del-28s{ animation-delay:  14s !important;}
+.ani.del-29s{ animation-delay:  14.5s !important;}
+.ani.del-30s{ animation-delay:  15s !important;}
+.ani.del-31s{ animation-delay:  15.5s !important;}
+.ani.del-32s{ animation-delay:  16s !important;}
+.ani.del-33s{ animation-delay:  16.5s !important;}
+.ani.del-34s{ animation-delay:  17s !important;}
+.ani.del-35s{ animation-delay:  17.5s !important;}
+.ani.del-36s{ animation-delay:  18s !important;}
+.ani.del-37s{ animation-delay:  18.5s !important;}
+.ani.del-38s{ animation-delay:  19s !important;}
+.ani.del-39s{ animation-delay:  19.5s !important;}
+.ani.del-40s{ animation-delay:  20s !important;}
+.ani.del-41s{ animation-delay:  20.5s !important;}
+.ani.del-42s{ animation-delay:  21s !important;}
+.ani.del-43s{ animation-delay:  21.5s !important;}
+.ani.del-44s{ animation-delay:  22s !important;}
+.ani.del-45s{ animation-delay:  22.5s !important;}
+.ani.del-46s{ animation-delay:  23s !important;}
+.ani.del-47s{ animation-delay:  23.5s !important;}
+.ani.del-48s{ animation-delay:  24s !important;}
+.ani.del-49s{ animation-delay:  24.5s !important;}
+.ani.del-50s{ animation-delay:  25s !important;}
+.ani.del-51s{ animation-delay:  25.5s !important;}
+.ani.del-52s{ animation-delay:  26s !important;}
+.ani.del-53s{ animation-delay:  26.5s !important;}
+.ani.del-54s{ animation-delay:  27s !important;}
+.ani.del-55s{ animation-delay:  27.5s !important;}
+.ani.del-56s{ animation-delay:  28s !important;}
+.ani.del-57s{ animation-delay:  28.5s !important;}
+.ani.del-58s{ animation-delay:  29s !important;}
+.ani.del-59s{ animation-delay:  29.5s !important;}
+.ani.del-60s{ animation-delay:  30s !important;}
+.ani.del-61s{ animation-delay:  30.5s !important;}
+.ani.del-62s{ animation-delay:  31s !important;}
+.ani.del-63s{ animation-delay:  31.5s !important;}
+.ani.del-64s{ animation-delay:  32s !important;}
+.ani.del-65s{ animation-delay:  32.5s !important;}
+.ani.del-66s{ animation-delay:  33s !important;}
+.ani.del-67s{ animation-delay:  33.5s !important;}
+.ani.del-68s{ animation-delay:  34s !important;}
+.ani.del-69s{ animation-delay:  34.5s !important;}
+.ani.del-70s{ animation-delay:  35s !important;}
+.ani.del-71s{ animation-delay:  35.5s !important;}
+.ani.del-72s{ animation-delay:  36s !important;}
+.ani.del-73s{ animation-delay:  36.5s !important;}
+.ani.del-74s{ animation-delay:  37s !important;}
+.ani.del-75s{ animation-delay:  37.5s !important;}
+.ani.del-76s{ animation-delay:  38s !important;}
+.ani.del-77s{ animation-delay:  38.5s !important;}
+.ani.del-78s{ animation-delay:  39s !important;}
+.ani.del-79s{ animation-delay:  39.5s !important;}
+.ani.del-80s{ animation-delay:  40s !important;}
+.ani.del-81s{ animation-delay:  40.5s !important;}
+.ani.del-82s{ animation-delay:  41s !important;}
+.ani.del-83s{ animation-delay:  41.5s !important;}
+.ani.del-84s{ animation-delay:  42s !important;}
+.ani.del-85s{ animation-delay:  42.5s !important;}
+.ani.del-86s{ animation-delay:  43s !important;}
+.ani.del-87s{ animation-delay:  43.5s !important;}
+.ani.del-88s{ animation-delay:  44s !important;}
+.ani.del-89s{ animation-delay:  44.5s !important;}
+.ani.del-90s{ animation-delay:  45s !important;}
+.ani.del-91s{ animation-delay:  45.5s !important;}
+.ani.del-92s{ animation-delay:  46s !important;}
+.ani.del-93s{ animation-delay:  46.5s !important;}
+.ani.del-94s{ animation-delay:  47s !important;}
+.ani.del-95s{ animation-delay:  47.5s !important;}
+.ani.del-96s{ animation-delay:  48s !important;}
+.ani.del-97s{ animation-delay:  48.5s !important;}
+.ani.del-98s{ animation-delay:  49s !important;}
+.ani.del-99s{ animation-delay:  49.5s !important;}
+.ani.del-100s{ animation-delay: 50s !important;}
+.ani.del-101s { animation-delay:   50.5s !important;}
+.ani.del-102s { animation-delay:   51s !important;}
+.ani.del-103s { animation-delay:   51.5s !important;}
+.ani.del-104s { animation-delay:   52s !important;}
+.ani.del-105s { animation-delay:   52.5s !important;}
+.ani.del-106s { animation-delay:   53s !important;}
+.ani.del-107s { animation-delay:   53.5s !important;}
+.ani.del-108s { animation-delay:   54s !important;}
+.ani.del-109s { animation-delay:   54.5s !important;}
+.ani.del-110s{ animation-delay:  55s !important;}
+.ani.del-111s{ animation-delay:  55.5s !important;}
+.ani.del-112s{ animation-delay:  56s !important;}
+.ani.del-113s{ animation-delay:  56.5s !important;}
+.ani.del-114s{ animation-delay:  57s !important;}
+.ani.del-115s{ animation-delay:  57.5s !important;}
+.ani.del-116s{ animation-delay:  58s !important;}
+.ani.del-117s{ animation-delay:  58.5s !important;}
+.ani.del-118s{ animation-delay:  59s !important;}
+.ani.del-119s{ animation-delay:  59.5s !important;}
+.ani.del-120s{ animation-delay:  60s !important;}
+.ani.del-121s{ animation-delay:  60.5s !important;}
+.ani.del-122s{ animation-delay:  61s !important;}
+.ani.del-123s{ animation-delay:  61.5s !important;}
+.ani.del-124s{ animation-delay:  62s !important;}
+.ani.del-125s{ animation-delay:  62.5s !important;}
+.ani.del-126s{ animation-delay:  63s !important;}
+.ani.del-127s{ animation-delay:  63.5s !important;}
+.ani.del-128s{ animation-delay:  64s !important;}
+.ani.del-129s{ animation-delay:  64.5s !important;}
+.ani.del-130s{ animation-delay:  65s !important;}
+.ani.del-131s{ animation-delay:  65.5s !important;}
+.ani.del-132s{ animation-delay:  66s !important;}
+.ani.del-133s{ animation-delay:  66.5s !important;}
+.ani.del-134s{ animation-delay:  67s !important;}
+.ani.del-135s{ animation-delay:  67.5s !important;}
+.ani.del-136s{ animation-delay:  68s !important;}
+.ani.del-137s{ animation-delay:  68.5s !important;}
+.ani.del-138s{ animation-delay:  69s !important;}
+.ani.del-139s{ animation-delay:  69.5s !important;}
+.ani.del-140s{ animation-delay:  70s !important;}
+.ani.del-141s{ animation-delay:  70.5s !important;}
+.ani.del-142s{ animation-delay:  71s !important;}
+.ani.del-143s{ animation-delay:  71.5s !important;}
+.ani.del-144s{ animation-delay:  72s !important;}
+.ani.del-145s{ animation-delay:  72.5s !important;}
+.ani.del-146s{ animation-delay:  73s !important;}
+.ani.del-147s{ animation-delay:  73.5s !important;}
+.ani.del-148s{ animation-delay:  74s !important;}
+.ani.del-149s{ animation-delay:  74.5s !important;}
+.ani.del-150s{ animation-delay:  75s !important;}
+.ani.del-151s{ animation-delay:  75.5s !important;}
+.ani.del-152s{ animation-delay:  76s !important;}
+.ani.del-153s{ animation-delay:  76.5s !important;}
+.ani.del-154s{ animation-delay:  77s !important;}
+.ani.del-155s{ animation-delay:  77.5s !important;}
+.ani.del-156s{ animation-delay:  78s !important;}
+.ani.del-157s{ animation-delay:  78.5s !important;}
+.ani.del-158s{ animation-delay:  79s !important;}
+.ani.del-159s{ animation-delay:  79.5s !important;}
+.ani.del-160s{ animation-delay:  80s !important;}
+.ani.del-161s{ animation-delay:  80.5s !important;}
+.ani.del-162s{ animation-delay:  81s !important;}
+.ani.del-163s{ animation-delay:  81.5s !important;}
+.ani.del-164s{ animation-delay:  82s !important;}
+.ani.del-165s{ animation-delay:  82.5s !important;}
+.ani.del-166s{ animation-delay:  83s !important;}
+.ani.del-167s{ animation-delay:  83.5s !important;}
+.ani.del-168s{ animation-delay:  84s !important;}
+.ani.del-169s{ animation-delay:  84.5s !important;}
+.ani.del-170s{ animation-delay:  85s !important;}
+
+
+
+
+.ani.loop{ animation-iteration-count: infinite !important; }
+.ani.c-1{ animation-iteration-count: 1 !important; }
+.ani.c-2{ animation-iteration-count: 2 !important; }
+.ani.c-3{ animation-iteration-count: 3 !important; }
+.ani.c-4{ animation-iteration-count: 4 !important; }
+.ani.c-5{ animation-iteration-count: 5 !important; }
+
+.ani.reverse  { animation-direction: reverse !important; }
+.ani.alternate{ animation-direction: alternate !important; }
+.ani.alternate-reverse{ animation-direction: alternate-reverse !important; }
+
+.ani.forwards { animation-fill-mode: forwards !important; }
+.ani.backwards{ animation-fill-mode: backwards !important; }
+.ani.both     { animation-fill-mode: both !important; }
+
+.ani.running{ animation-play-state: running; }
+.ani.paused { animation-play-state: paused; }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- animation events ---- */
+.ani.ev-0{ animation-play-state: paused; }
+.ani.ev-1{ animation-play-state: paused; }
+.ani.ev-2{ animation-play-state: paused; }
+.ani.ev-3{ animation-play-state: paused; }
+.ani.ev-4{ animation-play-state: paused; }
+.ani.ev-5{ animation-play-state: paused; }
+
+
+
+/* ---- animation direct trigger ---- */
+.ani.onhover-play:hover     { animation-play-state: running; }
+.ani.onhover-play:not(hover){ animation-play-state: paused;  }
+
+#ani-timeline .ani-indicator{
+  animation: kf-move-r 1s linear 1 forwards;
+  animation-play-state: paused;
+}
+
+
+.onclick {
+  cursor: pointer;
+}
+
+
+
+/* ---- TEST ---- */
+.swing { width: 300px; height: 180px; margin: 1em auto}
+
+input[type='range'] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width:100%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 8px solid gray;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-top: -14px;
+}
+
+input[type='range']::-moz-range-thumb {
+  border:8px solid gray;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-top: -14px;
+}
+
+input[type='range']::-ms-thumb {
+  border: 8px solid silver;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background-color: silver;
+  border-radius: 5px;
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background-color: silver;
+  border-radius: 5px;
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+input[type='range']#lightness {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+   border:1px solid hsl(0,0%,60%);
+   background-image: -webkit-linear-gradient(  
+        left, white 10%, hsl(0,1%,40%) 98%
+    );
+}
+#sin { margin: 1ex auto; font-size: 2em}
+
+     
+
+.blue {
+color: blue;
+}
+
+
+
